@@ -4,211 +4,593 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R M ❤️</title>
+<title>Only for you ♡</title>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=DM+Sans:wght@300;400;500&display=swap');
 
-* {
-    box-sizing: border-box;
+:root {
+ --pink:#f5dce2;
+ --rose:#c77c8c;
+ --dark:#593b48;
+ --cream:#fff8f3;
+ --purple:#8d779d;
 }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    background:
-      radial-gradient(ellipse at top, #681b32, transparent 55%),
-      linear-gradient(145deg, #100609, #310b18, #16070c);
-    color: #f8e8df;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow-x: hidden;
-    padding: 25px;
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+ font-family:'DM Sans',sans-serif;
+ background:#f8e9e9;
+ color:var(--dark);
+ overflow:hidden;
 }
 
-.container {
-    width: 100%;
-    max-width: 620px;
-    padding: 45px 25px;
-    border: 1px solid rgba(220, 174, 126, 0.45);
-    border-radius: 25px;
-    background: rgba(15, 5, 9, 0.55);
-    box-shadow: 0 0 60px rgba(130, 21, 52, 0.25);
-    animation: appear 1.5s ease;
+.page{
+ position:fixed;
+ inset:0;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ padding:25px;
+ overflow-y:auto;
+ text-align:center;
 }
 
-.initials {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(65px, 15vw, 100px);
-    letter-spacing: 15px;
-    color: #e7bd91;
-    text-shadow: 0 0 25px #a34b60;
-    margin: 5px 0;
+.page.active{display:flex;animation:appear 1s ease}
+
+/* SOFT MODERN BACKGROUNDS */
+
+.bg1{
+ background:
+ radial-gradient(circle at 20% 20%,#fff7ef 0 5%,transparent 35%),
+ radial-gradient(circle at 80% 80%,#e5b5c6,transparent 40%),
+ linear-gradient(135deg,#f9e9e7,#d9c6e7);
 }
 
-.line {
-    width: 100px;
-    height: 1px;
-    background: #d5aa80;
-    margin: 20px auto;
+.bg2{
+ background:
+ radial-gradient(circle at 50% 20%,#fff5ec,transparent 50%),
+ linear-gradient(140deg,#e8c6d0,#c3b4d9,#edcbd0);
 }
 
-.subtitle {
-    font-size: 23px;
-    color: #e6c2b8;
-    font-style: italic;
+.bg3{
+ background:
+ radial-gradient(circle at 15% 80%,#f5d6dc,transparent 40%),
+ linear-gradient(135deg,#f6eee9,#e3d7ed);
 }
 
-.message {
-    font-size: 23px;
-    line-height: 1.7;
-    margin: 30px 0;
-    color: #f3ded6;
+.bg4{
+ background:
+ radial-gradient(circle at 80% 20%,#e7c5d1,transparent 35%),
+ linear-gradient(135deg,#f8e8df,#dfd0e8);
 }
 
-.question {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 27px;
-    color: #e9c49b;
-    margin: 30px 0;
+.glass{
+ background:#ffffff62;
+ border:1px solid #ffffffa8;
+ backdrop-filter:blur(18px);
+ box-shadow:0 15px 55px #87627620;
+ border-radius:25px;
 }
 
-.buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 15px;
+.eyebrow{
+ letter-spacing:5px;
+ text-transform:uppercase;
+ font-size:11px;
+ color:#986b83;
+ margin-bottom:22px;
 }
 
-button {
-    padding: 14px 25px;
-    border-radius: 30px;
-    border: 1px solid #d6ad83;
-    background: #671d35;
-    color: white;
-    font-family: Georgia, serif;
-    font-size: 17px;
-    cursor: pointer;
-    transition: 0.3s;
+.script{
+ font-family:'Great Vibes',cursive;
+ color:#a45e78;
 }
 
-button:hover {
-    background: #9a3552;
-    transform: translateY(-4px);
-    box-shadow: 0 0 20px #9a3552;
+.serif{
+ font-family:'Playfair Display',serif;
 }
 
-#answer {
-    font-size: 23px;
-    color: #edc49e;
-    margin-top: 28px;
-    line-height: 1.5;
+button{
+ border:0;
+ cursor:pointer;
+ font-family:inherit;
 }
 
-.footer {
-    margin-top: 35px;
-    font-size: 17px;
-    color: #bb9292;
+.primary{
+ padding:14px 30px;
+ border-radius:40px;
+ color:white;
+ background:linear-gradient(135deg,#c98299,#997fae);
+ box-shadow:0 8px 25px #9e698c40;
+ font-size:14px;
+ transition:.3s;
 }
 
-.heart {
-    position: fixed;
-    bottom: -30px;
-    font-size: 22px;
-    animation: float 7s linear infinite;
-    pointer-events: none;
-    z-index: -1;
+.primary:hover{transform:translateY(-3px)}
+
+.back{
+ position:absolute;
+ top:24px;
+ left:22px;
+ padding:10px 17px;
+ border-radius:30px;
+ background:#ffffff85;
+ color:#704e66;
+ font-size:13px;
 }
 
-@keyframes float {
-    to {
-        transform: translateY(-110vh) rotate(30deg);
-        opacity: 0;
-    }
+/* 1 */
+
+#p1{cursor:pointer}
+
+.intro{
+ max-width:550px;
+ padding:30px;
 }
 
-@keyframes appear {
-    from {opacity: 0; transform: translateY(25px);}
-    to {opacity: 1; transform: translateY(0);}
+.intro h1{
+ font-size:clamp(36px,8vw,66px);
+ font-weight:400;
+ line-height:1.3;
+}
+
+.intro p{
+ margin-top:24px;
+ color:#866b80;
+ font-size:14px;
+ letter-spacing:2px;
+}
+
+.bubble{
+ display:inline-block;
+ margin-top:35px;
+ padding:13px 25px;
+ border-radius:30px;
+ background:#ffffff80;
+ font-size:13px;
+ color:#885f79;
+ animation:pulse 2s infinite;
+}
+
+/* 2 */
+
+.envelope{
+ width:270px;
+ height:185px;
+ position:relative;
+ background:#f6d5d7;
+ border-radius:7px;
+ box-shadow:0 18px 40px #8c617b35;
+ cursor:pointer;
+}
+
+.env-front{
+ position:absolute;
+ inset:0;
+ background:#e9bdcb;
+ clip-path:polygon(0 0,50% 60%,100% 0,100% 100%,0 100%);
+ z-index:2;
+}
+
+.env-flap{
+ position:absolute;
+ inset:0;
+ background:#f7dce0;
+ clip-path:polygon(0 0,100% 0,50% 60%);
+ transform-origin:top;
+ transition:1s;
+ z-index:3;
+}
+
+.env-seal{
+ position:absolute;
+ top:72px;
+ left:50%;
+ transform:translateX(-50%);
+ z-index:4;
+ font-size:35px;
+ color:#a34d6b;
+}
+
+.envelope.open .env-flap{transform:rotateX(180deg)}
+.envelope.open .env-seal{opacity:0}
+
+/* 3 */
+
+.card{
+ max-width:440px;
+ width:100%;
+ padding:35px 25px;
+}
+
+.card .big{
+ font-size:75px;
+ margin-bottom:10px;
+}
+
+.card h2{
+ font-size:30px;
+ font-weight:400;
+ margin:15px 0;
+}
+
+/* 4 */
+
+.choices{
+ width:min(100%,470px);
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:13px;
+ margin-top:25px;
+}
+
+.choice{
+ padding:20px 10px;
+ border-radius:18px;
+ background:#ffffff91;
+ border:1px solid #fff;
+ color:#75566e;
+ font-size:14px;
+ transition:.3s;
+}
+
+.choice:hover{
+ background:#fff;
+ transform:translateY(-4px);
+}
+
+.choice span{display:block;font-size:28px;margin-bottom:10px}
+
+/* 5 */
+
+.message{
+ max-width:480px;
+ padding:35px 25px;
+ line-height:1.9;
+ font-family:'Playfair Display',serif;
+ font-size:19px;
+}
+
+/* 6 */
+
+.gallery{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:14px;
+ width:min(100%,470px);
+ margin:25px auto;
+}
+
+.memory{
+ min-height:125px;
+ border-radius:18px;
+ background:#ffffffa0;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ padding:15px;
+ color:#815f79;
+ font-family:'Playfair Display',serif;
+}
+
+.memory span{font-size:32px;margin-bottom:10px}
+
+/* 7 */
+
+.question{
+ max-width:430px;
+ padding:35px 25px;
+}
+
+.question h2{
+ font-size:30px;
+ line-height:1.5;
+ font-weight:400;
+ margin:15px 0 25px;
+}
+
+/* 8 */
+
+.letter{
+ width:min(100%,620px);
+ padding:clamp(25px,6vw,48px);
+ text-align:left;
+ background:#fff9f1;
+ border-radius:5px;
+ box-shadow:0 20px 60px #77536a35;
+ border:1px solid #e9d6d0;
+ position:relative;
+}
+
+.letter:before{
+ content:"";
+ position:absolute;
+ inset:12px;
+ border:1px solid #e4c9c8;
+ pointer-events:none;
+}
+
+.letter h2{
+ text-align:center;
+ font-family:'Great Vibes',cursive;
+ font-size:53px;
+ color:#a35f79;
+ margin-bottom:25px;
+}
+
+.letter p{
+ position:relative;
+ font-family:'Playfair Display',serif;
+ font-style:italic;
+ font-size:clamp(17px,3.5vw,21px);
+ line-height:2;
+ white-space:pre-wrap;
+ margin-bottom:25px;
+ color:#634c50;
+}
+
+.letter-end{
+ text-align:center;
+ font-size:28px;
+ color:#bc718c;
+}
+
+/* 9 */
+
+.final-card{
+ padding:40px 28px;
+ width:min(100%,440px);
+}
+
+.final-card h2{
+ font-family:'Great Vibes',cursive;
+ font-size:65px;
+ color:#a45d79;
+ margin:20px 0;
+}
+
+.final-card p{
+ line-height:1.8;
+ color:#81677e;
+}
+
+/* NAVIGATION */
+
+.nav{
+ position:fixed;
+ bottom:17px;
+ left:50%;
+ transform:translateX(-50%);
+ z-index:20;
+ display:flex;
+ gap:8px;
+ padding:10px 14px;
+ background:#ffffffa3;
+ border:1px solid #fff;
+ backdrop-filter:blur(12px);
+ border-radius:30px;
+}
+
+.dot{
+ width:7px;
+ height:7px;
+ border-radius:50%;
+ background:#c8a9b8;
+ transition:.3s;
+}
+
+.dot.active{
+ width:22px;
+ border-radius:10px;
+ background:#a76686;
+}
+
+.heart{
+ position:absolute;
+ pointer-events:none;
+ color:#b77d9d;
+ opacity:.5;
+ animation:float 6s infinite ease-in-out;
+}
+
+@keyframes appear{
+ from{opacity:0;transform:translateY(15px)}
+ to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pulse{
+ 0%,100%{opacity:.6}
+ 50%{opacity:1}
+}
+
+@keyframes float{
+ 0%,100%{transform:translateY(0)}
+ 50%{transform:translateY(-20px)}
+}
+
+@media(max-width:480px){
+ .choices{gap:9px}
+ .choice{padding:16px 7px}
+ .letter{padding:30px 23px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- 1. KIRISH -->
+<section class="page bg1 active" id="p1" onclick="doubleEnter(event)">
+ <span class="heart" style="top:15%;left:15%;font-size:30px">♡</span>
+ <span class="heart" style="right:15%;top:25%;font-size:22px">✧</span>
+ <span class="heart" style="bottom:20%;left:20%;font-size:26px">♡</span>
 
-    <div class="initials">R M</div>
+ <div class="intro">
+  <div class="eyebrow">A little surprise</div>
+  <h1 class="serif">Some words are<br><i>only for you...</i></h1>
+  <p>ONE LITTLE WORLD · TWO HEARTS</p>
+  <div class="bubble">erm ikki marta ustiga bosing</div>
+ </div>
+</section>
 
-    <div class="line"></div>
+<!-- 2. KONVERT -->
+<section class="page bg2" id="p2">
+ <button class="back" onclick="go(1)">← Ortga</button>
+ <div class="eyebrow">Something special</div>
+ <div class="envelope" id="env" onclick="openEnvelope()">
+  <div class="env-flap"></div>
+  <div class="env-front"></div>
+  <div class="env-seal">♥</div>
+ </div>
+ <p class="script" style="font-size:38px;margin-top:35px">For you...</p>
+ <p style="margin-top:12px;color:#856a7d">Konvertni bosing</p>
+</section>
 
-    <div class="subtitle">
-        Siz uchun kichik bir sahifa... 🤍
-    </div>
+<!-- 3. XAT -->
+<section class="page bg3" id="p3">
+ <button class="back" onclick="go(2)">← Ortga</button>
+ <div class="card glass">
+  <div class="big">💌</div>
+  <div class="eyebrow">A message from my heart</div>
+  <h2 class="serif">Siz uchun bir maktub</h2>
+  <p style="line-height:1.8;color:#896e83">
+   Ba'zi gaplarni aytish oson emas...<br>
+   Shuning uchun ularni xatga yozdim.
+  </p>
+  <button class="primary" style="margin-top:25px" onclick="go(8)">
+   Maktubni ochish ♡
+  </button>
+ </div>
+</section>
 
-    <div class="message">
-        Men ataylab chiqib ketmadim.
-        Aloqa uzilib qoldi, keyin uxlab qolibman.
-        Sizni xafa qilgan bo‘lsam,
-        chin dildan uzr so‘rayman. 🥹
-        <br><br>
-        Sizning kayfiyatingiz men uchun muhim. ❤️
-    </div>
+<!-- 4. KICHIK SAHIFA -->
+<section class="page bg1" id="p4">
+ <button class="back" onclick="go(3)">← Ortga</button>
+ <div class="eyebrow">A little thought</div>
+ <h2 class="serif" style="font-size:35px;font-weight:400">Bu kichkina dunyoda...</h2>
+ <div class="choices">
+  <div class="choice"><span>🌷</span>Mehr</div>
+  <div class="choice"><span>♡</span>Samimiyat</div>
+  <div class="choice"><span>✨</span>Yaxshi niyat</div>
+  <div class="choice"><span>💌</span>Maktub</div>
+ </div>
+ <button class="primary" style="margin-top:30px" onclick="go(5)">Davom etish</button>
+</section>
 
-    <div class="question">
-        Uxlab qolganim uchun meni kechirasizmi? 🥺
-    </div>
+<!-- 5. XABAR -->
+<section class="page bg4" id="p5">
+ <button class="back" onclick="go(4)">← Ortga</button>
+ <div class="message glass">
+  <div class="script" style="font-size:52px">Sometimes...</div>
+  <p>
+   Ba'zan yurakdagi gaplarni oddiy so'zlar bilan ifodalash qiyin bo'ladi.
+   Shunday paytda kichkina bir maktub ham ko'p narsani aytishi mumkin.
+  </p>
+  <button class="primary" style="margin-top:25px" onclick="go(6)">Keyingi sahifa ♡</button>
+ </div>
+</section>
 
-    <div class="buttons">
-        <button onclick="yesAnswer()">
-            Ha, kechiraman ❤️
-        </button>
+<!-- 6. RAMZIY SAHIFA -->
+<section class="page bg2" id="p6">
+ <button class="back" onclick="go(5)">← Ortga</button>
+ <div class="eyebrow">Little things</div>
+ <h2 class="serif" style="font-size:34px;font-weight:400">Bu sahifada...</h2>
+ <div class="gallery">
+  <div class="memory"><span>🌸</span>Go'zallik</div>
+  <div class="memory"><span>🕊️</span>Osudalik</div>
+  <div class="memory"><span>💗</span>Mehr</div>
+  <div class="memory"><span>🌙</span>Orzular</div>
+ </div>
+ <button class="primary" onclick="go(7)">Davom etish</button>
+</section>
 
-        <button onclick="noAnswer()">
-            Yo‘q, kechirmayman 🥺
-        </button>
-    </div>
+<!-- 7. SAVOL -->
+<section class="page bg3" id="p7">
+ <button class="back" onclick="go(6)">← Ortga</button>
+ <div class="question glass">
+  <div class="script" style="font-size:45px">One question...</div>
+  <h2 class="serif">Mening kichkina maktubimni o'qishga tayyormisiz?</h2>
+  <button class="primary" onclick="go(8)">Ha, o'qiyman ♡</button>
+ </div>
+</section>
 
-    <div id="answer"></div>
+<!-- 8. ASOSIY XAT -->
+<section class="page bg4" id="p8">
+ <button class="back" onclick="go(7)">← Ortga</button>
+ <div class="letter">
+  <h2>My dear...</h2>
+  <p>torisi buni azgina szni kongliz kutariliwi uchun qldm wu kunlarda mndan qanaqadr alamzada bub yuribsz ili bilmadim mn wunaqa hs qvoma wu kunlarda uylamasdan jahlizni chiqazib asabizni buzib quyvomn mni kechirin</p>
+  <p>nu lekn mn szni judayam qattu sevamn</p>
+  <div class="letter-end">♡ ❀ ♡</div>
+ </div>
+ <button class="primary" style="margin-top:22px" onclick="go(9)">Yana bir sahifa...</button>
+</section>
 
-    <div class="footer">
-        Bir oz mehr, bir oz uzr... 🫶🏻
-    </div>
+<!-- 9. YAKUN -->
+<section class="page bg1" id="p9">
+ <div class="final-card glass">
+  <div style="font-size:55px">💗</div>
+  <div class="eyebrow">The end of my letter</div>
+  <h2>With love</h2>
+  <p>Bu maktub siz uchun.</p>
+  <div style="font-size:25px;margin:20px">✧ ♡ ✧</div>
+  <button class="primary" onclick="go(1)">Boshidan ko'rish</button>
+ </div>
+</section>
 
-</div>
+<!-- NAVIGATION DOTS -->
+<div class="nav" id="nav"></div>
 
 <script>
-function yesAnswer() {
-    document.getElementById("answer").innerHTML =
-    "Rahmat! ❤️ Ishonchingizni qadrlayman. Sizni xafa qilishni istamagandim. 🥹🤍";
+let lastTap = 0;
+let current = 1;
+
+function go(number){
+ current = number;
+
+ document.querySelectorAll('.page').forEach(p=>{
+  p.classList.remove('active');
+ });
+
+ document.getElementById('p'+number).classList.add('active');
+
+ document.querySelectorAll('.dot').forEach((d,i)=>{
+  d.classList.toggle('active',i===number-1);
+ });
+
 }
 
-function noAnswer() {
-    document.getElementById("answer").innerHTML =
-    "Tushunaman... 🥺 Sizni shoshirmayman. Tayyor bo‘lganingizda gaplashamiz. 🤍";
+function doubleEnter(event){
+ if(event.target.closest('button')) return;
+
+ let now = Date.now();
+
+ if(now-lastTap < 550){
+  go(2);
+ }
+
+ lastTap=now;
 }
 
-// Mayin uchuvchi yurakchalar
-const emojis = ["❤️", "🤍", "✨", "🫶🏻", "🥹"];
+function openEnvelope(){
+ const env=document.getElementById('env');
+ env.classList.add('open');
 
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerText =
-        emojis[Math.floor(Math.random() * emojis.length)];
-
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 10000);
+ setTimeout(()=>{
+  go(3);
+  env.classList.remove('open');
+ },1000);
 }
 
-setInterval(createHeart, 800);
+const nav=document.getElementById('nav');
+
+for(let i=1;i<=9;i++){
+ let dot=document.createElement('div');
+ dot.className='dot'+(i===1?' active':'');
+ nav.appendChild(dot);
+}
 </script>
 
 </body>
