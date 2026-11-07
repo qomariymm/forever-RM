@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R M ❤️</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at top, #681b32, transparent 55%),
+      linear-gradient(145deg, #100609, #310b18, #16070c);
+    color: #f8e8df;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow-x: hidden;
+    padding: 25px;
+}
+
+.container {
+    width: 100%;
+    max-width: 620px;
+    padding: 45px 25px;
+    border: 1px solid rgba(220, 174, 126, 0.45);
+    border-radius: 25px;
+    background: rgba(15, 5, 9, 0.55);
+    box-shadow: 0 0 60px rgba(130, 21, 52, 0.25);
+    animation: appear 1.5s ease;
+}
+
+.initials {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(65px, 15vw, 100px);
+    letter-spacing: 15px;
+    color: #e7bd91;
+    text-shadow: 0 0 25px #a34b60;
+    margin: 5px 0;
+}
+
+.line {
+    width: 100px;
+    height: 1px;
+    background: #d5aa80;
+    margin: 20px auto;
+}
+
+.subtitle {
+    font-size: 23px;
+    color: #e6c2b8;
+    font-style: italic;
+}
+
+.message {
+    font-size: 23px;
+    line-height: 1.7;
+    margin: 30px 0;
+    color: #f3ded6;
+}
+
+.question {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 27px;
+    color: #e9c49b;
+    margin: 30px 0;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 14px 25px;
+    border-radius: 30px;
+    border: 1px solid #d6ad83;
+    background: #671d35;
+    color: white;
+    font-family: Georgia, serif;
+    font-size: 17px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #9a3552;
+    transform: translateY(-4px);
+    box-shadow: 0 0 20px #9a3552;
+}
+
+#answer {
+    font-size: 23px;
+    color: #edc49e;
+    margin-top: 28px;
+    line-height: 1.5;
+}
+
+.footer {
+    margin-top: 35px;
+    font-size: 17px;
+    color: #bb9292;
+}
+
+.heart {
+    position: fixed;
+    bottom: -30px;
+    font-size: 22px;
+    animation: float 7s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes float {
+    to {
+        transform: translateY(-110vh) rotate(30deg);
+        opacity: 0;
+    }
+}
+
+@keyframes appear {
+    from {opacity: 0; transform: translateY(25px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="initials">R M</div>
+
+    <div class="line"></div>
+
+    <div class="subtitle">
+        Siz uchun kichik bir sahifa... 🤍
+    </div>
+
+    <div class="message">
+        Men ataylab chiqib ketmadim.
+        Aloqa uzilib qoldi, keyin uxlab qolibman.
+        Sizni xafa qilgan bo‘lsam,
+        chin dildan uzr so‘rayman. 🥹
+        <br><br>
+        Sizning kayfiyatingiz men uchun muhim. ❤️
+    </div>
+
+    <div class="question">
+        Uxlab qolganim uchun meni kechirasizmi? 🥺
+    </div>
+
+    <div class="buttons">
+        <button onclick="yesAnswer()">
+            Ha, kechiraman ❤️
+        </button>
+
+        <button onclick="noAnswer()">
+            Yo‘q, kechirmayman 🥺
+        </button>
+    </div>
+
+    <div id="answer"></div>
+
+    <div class="footer">
+        Bir oz mehr, bir oz uzr... 🫶🏻
+    </div>
+
+</div>
+
+<script>
+function yesAnswer() {
+    document.getElementById("answer").innerHTML =
+    "Rahmat! ❤️ Ishonchingizni qadrlayman. Sizni xafa qilishni istamagandim. 🥹🤍";
+}
+
+function noAnswer() {
+    document.getElementById("answer").innerHTML =
+    "Tushunaman... 🥺 Sizni shoshirmayman. Tayyor bo‘lganingizda gaplashamiz. 🤍";
+}
+
+// Mayin uchuvchi yurakchalar
+const emojis = ["❤️", "🤍", "✨", "🫶🏻", "🥹"];
+
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText =
+        emojis[Math.floor(Math.random() * emojis.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 10000);
+}
+
+setInterval(createHeart, 800);
+</script>
+
+</body>
+</html>
